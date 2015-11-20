@@ -1,0 +1,7 @@
+#!/system/xbin/sh
+### FeraLab ###
+
+mount -o remount,rw rootfs /
+sync
+echo > /proc/splboot/boot
+

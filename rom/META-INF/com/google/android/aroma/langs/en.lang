@@ -1,0 +1,68 @@
+### FeraLab ###
+
+text_ok=OK
+text_next=Next >
+text_back=< Back
+text_yes=Yes
+text_no=No
+text_about=About
+text_calibrating=Calibrating Tools
+text_quit=Quit Installation
+text_quit_msg=Are you sure to quit the installer?
+
+common.for=for
+
+welcome.title=Welcome!
+welcome.text1=You are about to install
+welcome.text2=Please carefully read descriptions!
+welcome.version=VERSION
+welcome.codename=DEVELOPER
+welcome.updated=ANDROID
+welcome.next=Press 'Next' to continue...
+
+terms.title=Disclaimer
+terms.desc=Please read carefully!
+terms.check=I agree with this terms and conditions.
+terms.confirm=Agree or exit.
+
+sys.title=System Information
+sys.titlee=Your current device memory status
+sys.free=Free Space
+sys.system=System Size
+sys.data=Data Size
+sys.sd=SD card Size
+sys.sdext=SD-EXT Size
+
+opt.a=Extra Configuration
+opt.b=Select desired options. Skip this step if you don't know what to choose.
+opt.c=Options
+opt.d=Install SE DLNA wireless file sharing application.
+opt.xyyx=Install default SIM-toolkit application.
+opt.xyxyz=Install unofficial YouTube application.
+opt.xyxyzz=Install Sony Powersave application.
+opt.xyxyzzl=Select this if you have unlocked bootloader to enable offline charging.
+opt.xyxyzzlly=Disable HOME key device unlock.
+opt.xyxyzzllyf=Disable HW buttons LED.
+opt.xyxyzzllyff=Disable zRAM. Just in case you realy want it.
+opt.xyxyzzllyzzz=Scale down maximum CPU frequency to 768Mhz. This will greatly save your battery life in cost of overall performance. Option can be overrided later in system settings.
+opt.mmmm=Install Logger module for FeraKernel-v29 for debuging purposes
+opt.mmmmmm=Disable FastCharge mode support for FeraKernel-v29
+
+hz.ready=Ready
+hz.readyy=We are ready to begin installation
+hz.aha=If you want to review or change any of your installation settings, press <b>Back</b>. Press Menu Key -> Quit Installation to exit the wizard
+hz.next=Next >
+hz.now=Install now!
+
+inst.title=Installing...
+inst.is=Firmware is being installed..
+inst.wait=Please wait untill installation process is finished
+inst.min=This may take several minutes
+inst.fin=We have successfully installed
+inst.next=Press 'Next' to continue
+
+finish.fin=Finish
+reboot.title=Finish!
+reboot.titlee=Firmware was successfully installed.
+reboot.box=Reboot device.
+

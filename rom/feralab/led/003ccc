@@ -1,0 +1,6 @@
+#!/system/xbin/sh
+### FeraDroid Engine v18.1 | By FeraVolt. 2015 ###
+
+echo 0 > /sys/class/leds/lv5219lg:sled/brightness
+chmod 444 /sys/class/leds/lv5219lg:sled/brightness
+

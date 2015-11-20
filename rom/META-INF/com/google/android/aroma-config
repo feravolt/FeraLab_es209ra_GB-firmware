@@ -1,0 +1,138 @@
+﻿### ***FeraLab*** 2015 ###
+
+ini_set("dp","3");
+calibrate("0.9695","16","0.9900","0");
+theme("miui4");
+
+ini_set("rom_name",             "***FeraLab***");
+ini_set("rom_version",          "v41.2");
+ini_set("rom_author",           "FeraVolt");
+ini_set("rom_device",           "Xperia X10");
+ini_set("rom_api",              "2.5.1");
+
+splash(
+    3000,
+    "feralab"
+);
+
+fontresload( "0", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "12" );
+fontresload( "1", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "14" );
+
+selectbox(
+    "Select Language",
+    "Please select desired language:",
+    "@default",
+    "lang.prop",
+    "English",            " ",                                 1,
+    "Russian",            " ",                                 0
+);
+
+if prop("lang.prop","selected.0")=="1" then
+  loadlang("langs/en.lang");
+endif;
+
+if prop("lang.prop","selected.0")=="2" then
+  loadlang("langs/ru.lang");
+endif;
+
+viewbox(
+    "<~welcome.title>",
+    "<~welcome.text1> <b>"+
+	  ini_get("rom_name")+
+	"</b> <~common.for> <b>"+ini_get("rom_device")+"</b>.\n\n"+
+    "<~welcome.text2>\n\n"+
+      "  <~welcome.version>\t: <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
+      "  <~welcome.codename>\t: <b><#selectbg_g>FeraVolt</#></b>\n\n"+
+    "<~welcome.next>",
+    "@welcome"
+);
+
+agreebox(
+    "<~terms.title>",
+    "<~terms.desc>",
+    "@license",
+    resread("disclaimer.txt"),
+    "<~terms.check>",
+    "<~terms.confirm>"
+);
+
+pleasewait("Processing..");
+
+setvar(
+      "sysinfo",
+      "<@center><b><~sys.titlee></b></@>\n\n"+
+      "<~sys.system>\t\t: <b><#selectbg_g>"+getdisksize("/system","m")+" MB</#></b>\n"+
+        "\t<~sys.free>\t\t: <b><#selectbg_g>"+getdiskfree("/system","m")+" MB</#></b>\n\n"+
+      "<~sys.data>\t\t: <b><#selectbg_g>"+getdisksize("/data","m")+" MB</#></b>\n"+
+        "\t<~sys.free>\t\t: <b><#selectbg_g>"+getdiskfree("/data","m")+" MB</#></b>\n\n"+
+      "<~sys.sd>\t\t: <b><#selectbg_g>"+getdisksize("/sdcard","m")+" MB</#></b>\n"+
+        "\t<~sys.free>\t\t: <b><#selectbg_g>"+getdiskfree("/sdcard","m")+" MB</#></b>\n\n"+
+      "<~sys.sdext>\t\t: <b><#selectbg_g>"+getdisksize("/sd-ext","m")+" MB</#></b>\n"+
+        "\t<~sys.free>\t\t: <b><#selectbg_g>"+getdiskfree("/sd-ext","m")+" MB</#></b>\n\n"+
+      ""
+);
+
+textbox(
+      "<~sys.title>",
+      " ",
+      "@info",
+      getvar("sysinfo")
+);
+
+checkbox(
+      "<~opt.a>",
+      "<~opt.b>",
+      "@personalize",
+      "opt.prop",
+       "<~opt.c>",             " ",                                          2,
+        "DLNA",                 "<~opt.d>",0,
+        "Sim Toolkit",          "<~opt.xyyx>",0,
+        "Powersave",            "<~opt.xyxyzz>",0,
+        "Home Key",             "<~opt.xyxyzzlly>",0,
+        "HW LED",               "<~opt.xyxyzzllyf>",0,
+        "zRAM",                 "<~opt.xyxyzzllyff>",0,
+        "CPU clock",            "<~opt.xyxyzzllyzzz>",0,
+        "Logger",               "<~opt.mmmm>",0,
+        "No FastCharge",        "<~opt.mmmmmm>",0
+);
+
+ini_set("text_next", "<~hz.now>");
+
+viewbox(
+    "<~hz.ready>",
+    "<~hz.readyy>.\n\n"+
+	"<~hz.aha>.",
+    "@install"
+);
+
+ini_set("text_next", "<~hz.next>");
+
+setvar("retstatus",
+  install(
+      "<~inst.title>",
+	  "<b>"+ini_get("rom_name")+"</b> <~inst.is>\n\n"+
+      "<~inst.wait> <b>"+ini_get("rom_name")+
+	  "</b>. <~inst.min>.",
+      "@install",
+      "<~inst.fin> <b>"+ini_get("rom_name")+
+	  "</b>. <~inst.next>."
+  )
+);
+
+ini_set("text_next", "<~finish.fin>");
+
+checkviewbox(
+    "<~reboot.title>",
+    "<#selectbg_g><b><~reboot.titlee></b></#>\n\n",
+    "@welcome",
+    "<~reboot.box>",
+    "1",
+    "reboot_it"
+);
+
+if
+  getvar("reboot_it")=="1"
+then
+  reboot("onfinish");
+endif;
+

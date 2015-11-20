@@ -1,0 +1,16 @@
+#!/system/xbin/sh
+### FeraDroid Engine v18.1 | By FeraVolt. 2015 ###
+
+for i in \
+`find /data -iname "*.db"`; 
+do \
+	sqlite3 $i 'VACUUM;'; 
+done;
+
+for i in \
+`find /data -iname "*.db"`; 
+do \
+	sqlite3 $i 'REINDEX;'; 
+done;
+
+sync;
