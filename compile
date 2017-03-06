@@ -40,7 +40,7 @@ cd kernel
 make fera_es209ra_defconfig
 echo ' '
 echo '>> Compiling FeraKernel...'
-make -j4
+make -j8
 cd
 cd /home/feravolt/ferra/vendor/host
 echo ' '
@@ -62,6 +62,7 @@ echo '>> Packing ramdisk...'
 rm -f /home/feravolt/ferra/kernel/tools/input/zImage
 rm -f /home/feravolt/ferra/kernel/tools/input/ramdisk/modules/wifi.ko
 cp /home/feravolt/ferra/kernel/arch/arm/boot/zImage /home/feravolt/ferra/kernel/tools/input/zImage
+sleep 9
 mv /home/feravolt/ferra/0UTPUT/wifi.ko /home/feravolt/ferra/kernel/tools/input/ramdisk/modules/wifi.ko
 cd /home/feravolt/ferra/kernel/tools/ramdisk
 ./pack
@@ -79,8 +80,6 @@ fi;
 echo ' '
 echo '>> Compilation completed.'
 cd
-rm -f /home/feravolt/.flashTool/firmwares/FeraKernel.ftf
-cp /home/feravolt/ferra/0UTPUT/FeraKernel.ftf /home/feravolt/.flashTool/firmwares/FeraKernel.ftf
 cd ferra
 echo ' '
 echo '>> FeraKernel ready.'

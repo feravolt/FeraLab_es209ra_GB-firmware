@@ -54,10 +54,10 @@ struct clkctl_acpu_speed {
 struct clkctl_acpu_speed acpu_freq_tbl_1305[] = {
 	{ 0, 19200, ACPU_PLL_TCXO, 0, 0, 0, 0, 14000, 0, 0, 950},
 	{ 0, 192000, ACPU_PLL_1, 1, 5, 0, 0, 14000, 2, 0, 950},
-	{ 1, 245760, ACPU_PLL_0, 4, 0, 0, 0, 29000, 0, 0, 950},
-	{ 1, 384000, ACPU_PLL_3, 0, 0, 0, 0, 58000, 1, 0xA, 950},
+	{ 0, 245760, ACPU_PLL_0, 4, 0, 0, 0, 29000, 0, 0, 950},
+	{ 0, 384000, ACPU_PLL_3, 0, 0, 0, 0, 58000, 1, 0xA, 950},
 	{ 0, 422400, ACPU_PLL_3, 0, 0, 0, 0, 117000, 1, 0xB, 950},
-	{ 0, 460800, ACPU_PLL_3, 0, 0, 0, 0, 117000, 1, 0xC, 950},
+	{ 1, 460800, ACPU_PLL_3, 0, 0, 0, 0, 117000, 1, 0xC, 950},
 	{ 0, 499200, ACPU_PLL_3, 0, 0, 0, 0, 117000, 1, 0xD, 1000},
 	{ 0, 537600, ACPU_PLL_3, 0, 0, 0, 0, 117000, 1, 0xE, 1000},
 	{ 1, 576000, ACPU_PLL_3, 0, 0, 0, 0, 117000, 1, 0xF, 1000},
@@ -440,7 +440,7 @@ skip_efuse_fixup:
 	iounmap(ct_csr_base);
 	pll0_m_val = readl(PLL0_M_VAL_ADDR) & 0x7FFFF;
 	if (pll0_m_val == 36)
-		PLL0_S->acpuclk_khz = 235930;
+		PLL0_S->acpuclk_khz = 245760;
 
 	for (i = 0; acpu_freq_tbl[i].acpuclk_khz != 0; i++) {
 		if (acpu_freq_tbl[i].vdd > drv_state.max_vdd) {
