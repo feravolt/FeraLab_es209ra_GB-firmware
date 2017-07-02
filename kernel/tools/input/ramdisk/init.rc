@@ -196,7 +196,7 @@ on boot
     write /proc/sys/vm/drop_caches 3
     write /sys/kernel/mm/ksm/pages_to_scan 69
     write /sys/kernel/mm/ksm/sleep_millisecs 5400
-    write /sys/kernel/mm/ksm/run 1
+    write /sys/kernel/mm/ksm/run 0
     write /proc/sys/kernel/sysrq 1
     write /proc/sys/vm/page-cluster 1
     chmod 0660 /sys/class/rfkill/rfkill0/state

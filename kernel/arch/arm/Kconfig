@@ -407,13 +407,7 @@ config PREEMPT
 	  Say Y here if you are building a kernel for a desktop, embedded
 	  or real-time system.  Say N if you are unsure.
 
-config HZ
-	int
-	default 128 if ARCH_L7200
-	default 200 if ARCH_EBSA110 || ARCH_S3C2410
-	default OMAP_32K_TIMER_HZ if ARCH_OMAP && OMAP_32K_TIMER
-	default AT91_TIMER_HZ if ARCH_AT91
-	default 100
+source kernel/Kconfig.hz
 
 config AEABI
 	bool "Use the ARM EABI to compile the kernel"
